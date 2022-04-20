@@ -87,7 +87,7 @@
     navigation {
       bindings = <
       //       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        &trans   &trans        &trans        &trans        &trans        &trans            &trans        &trans        &trans        &trans        &trans        &trans
+        &trans   &trans        &trans        &trans        &trans        &trans            &trans        &trans        &bt BT_PRV    &bt BT_NXT    &bt BT_CLR    &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
         &trans   &kp LCTRL     &kp LGUI      &kp LALT      &kp LSHFT     &trans            &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
