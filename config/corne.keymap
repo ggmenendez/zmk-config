@@ -61,7 +61,7 @@
     symbols {
       bindings = <
       //       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        &trans   &kp EXCL      &kp AT        &kp HAH       &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp ASTRK     &kp LPAR      &kp RPAR      &trans
+        &trans   &kp EXCL      &kp AT        &kp HASH       &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp ASTRK     &kp LPAR      &kp RPAR      &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
         &trans   &kp LCTRL     &kp LGUI      &kp LALT      &kp LSHFT     &kp MINUS         &kp SLASH     &kp EQUAL     &kp BSLH      &kp LBKT      &kp RBKT      &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
