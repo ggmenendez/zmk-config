@@ -16,6 +16,19 @@
 #define QWE 5
 
 / {
+  behaviors {
+    behaviors {
+     h: balanced_homerow_mods {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOMEROW_MODS";
+        #binding-cells = <2>;
+        tapping-term-ms = <200>;    // <---[[moderate duration]]
+        quick-tap-ms = <0>;
+        flavor = "balanced";
+        bindings = <&kp>, <&kp>;
+      };
+    };
+  };
   keymap {
     compatible = "zmk,keymap";
 
@@ -26,7 +39,7 @@
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
         &trans   &kp A         &kp O         &kp E         &kp U         &kp I             &kp D         &kp H         &kp T         &kp N         &kp S         &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        &trans   &kp SEMI      &kp Q         &kp J         &kp K         &kp X             &kp B         &kp M         &kp W         &kp V         &kp Z         &trans
+        &trans   &h LSHFT SEMI &h LALT Q     &h LGUI J     &h LCTRL K    &kp X             &kp B         &h RCTRL M    &h RGUI W     &h LALT V     &h RSHFT Z    &trans
       //       ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
                                              &mt LGUI TAB  &lt SYM ESC   &lt NAV SPACE     &lt FUN RET   &lt NUM BSPC  &mt RALT DEL
       //                                   ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
