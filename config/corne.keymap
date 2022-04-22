@@ -17,16 +17,14 @@
 
 / {
   behaviors {
-    behaviors {
-     h: balanced_homerow_mods {
-        compatible = "zmk,behavior-hold-tap";
-        label = "HOMEROW_MODS";
-        #binding-cells = <2>;
-        tapping-term-ms = <200>;    // <---[[moderate duration]]
-        quick-tap-ms = <0>;
-        flavor = "balanced";
-        bindings = <&kp>, <&kp>;
-      };
+    hm: homerow_mods {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOMEROW_MODS";
+      #binding-cells = <2>;
+      tapping-term-ms = <150>;
+      quick-tap-ms = <0>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
     };
   };
   keymap {
@@ -37,9 +35,9 @@
       //       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
         &trans   &kp APOS      &kp COMMA     &kp DOT       &kp P         &kp Y             &kp F         &kp G         &kp C         &kp R         &kp L         &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        &trans   &kp A         &kp O         &kp E         &kp U         &kp I             &kp D         &kp H         &kp T         &kp N         &kp S         &trans
+        &trans   &hm LSHFT A   &hm LALT O    &hm LGUI E    &hm LCTRL U   &kp I             &kp D         &hm RCTRL H   &hm RGUI T    &hm LALT N    &hm RSHFT S   &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        &trans   &h LSHFT SEMI &h LALT Q     &h LGUI J     &h LCTRL K    &kp X             &kp B         &h RCTRL M    &h RGUI W     &h LALT V     &h RSHFT Z    &trans
+        &trans   &kp SEMI      &kp Q         &kp J         &kp K         &kp X             &kp B         &kp M         &kp W         &kp V         &kp Z         &trans
       //       ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
                                              &mt LGUI TAB  &lt SYM ESC   &lt NAV SPACE     &lt FUN RET   &lt NUM BSPC  &mt RALT DEL
       //                                   ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
@@ -65,7 +63,7 @@
       //       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
         &trans   &kp EXCL      &kp AT        &kp HASH       &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp ASTRK     &kp LPAR      &kp RPAR      &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        &trans   &kp LCTRL     &kp LGUI      &kp LALT      &kp LSHFT     &kp MINUS         &kp SLASH     &kp EQUAL     &kp BSLH      &kp LBKT      &kp RBKT      &trans
+        &trans   &kp LSHFT     &kp LALT      &kp LGUI      &kp LCTRL     &kp MINUS         &kp SLASH     &kp EQUAL     &kp BSLH      &kp LBKT      &kp RBKT      &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
         &trans   &trans        &trans        &kp GRAVE     &kp TILDE     &kp UNDER         &kp QMARK     &kp PLUS      &kp PIPE      &kp LBRC      &kp RBRC      &trans
       //       ╰─────────────┴─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
@@ -93,7 +91,7 @@
       //       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
         &trans   &trans        &trans        &trans        &trans        &trans            &trans        &trans        &bt BT_PRV    &bt BT_NXT    &bt BT_CLR    &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        &trans   &kp LCTRL     &kp LGUI      &kp LALT      &kp LSHFT     &trans            &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        &trans
+        &trans   &kp LSHFT     &kp LALT      &kp LGUI      &kp LCTRL     &trans            &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &trans        &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
         &trans   &trans        &trans        &kp C_PREV    &kp C_PP      &kp C_NEXT        &kp K_VOL_DN  &kp K_MUTE    &kp C_VOL_UP  &trans        &trans        &trans
       //       ╰─────────────┴─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
