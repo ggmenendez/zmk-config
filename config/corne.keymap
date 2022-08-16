@@ -10,11 +10,11 @@
 
 // Layers
 #define DVO 0
-#define NUM 1
-#define SYM 2
-#define FUN 3
-#define NAV 4
-#define QWE 5
+#define QWE 1
+#define NUM 2
+#define SYM 3
+#define FUN 4
+#define NAV 5
 
 &mt {
     tapping-term-ms = <150>;
@@ -22,6 +22,7 @@
 
 / {
   behaviors {
+    // Deprecated
     am: alpha_mods {
       compatible = "zmk,behavior-hold-tap";
       label = "ALPHA_MT";
@@ -32,14 +33,55 @@
       bindings = <&kp>, <&kp>;
     };
 
+    // Deprecated
     as: alpha_shift {
       compatible = "zmk,behavior-hold-tap";
       label = "ALPHA_SFT";
       #binding-cells = <2>;
       tapping-term-ms = <150>;
       quick-tap-ms = <200>;
-      flavor = "tap-preferred";
+      flavor = "balanced";
       bindings = <&kp>, <&kp>;
+    };
+
+    lm: left_hand_positional_hold_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "LEFT_POSITIONAL_HOLD_TAP";
+      #binding-cells = <2>;
+      flavor = "tap-unless-interrupted";
+      tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+      quick-tap-ms = <200>;
+      bindings = <&kp>, <&kp>;
+      hold-trigger-key-positions = <6 7 8 9 10 18 19 20 21 22 30 31 32 33 34 39 40 41>;    // <---[[right-hand keys]]
+    };
+
+    rm: right_hand_positional_hold_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "LEFT_POSITIONAL_HOLD_TAP";
+      #binding-cells = <2>;
+      flavor = "tap-unless-interrupted";
+      tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+      quick-tap-ms = <200>;
+      bindings = <&kp>, <&kp>;
+      hold-trigger-key-positions = <1 2 3 4 5 13 14 15 16 17 25 26 27 28 29 36 37 38>;    // <---[[left-hand keys]]
+    };
+
+    cwl: caps_word_lock {
+      compatible = "zmk,behavior-tap-dance";
+      label = "CAPS_WORD_LOCK";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&caps_word>, <&kp CAPSLOCK>;
+    };
+
+    lt: layer_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "LAYER_TAP";
+      #binding-cells = <2>;
+      flavor = "tap-preferred";
+      tapping-term-ms = <200>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+      quick-tap-ms = <200>;
+      bindings = <&mo>, <&kp>;
     };
   };
 
@@ -51,9 +93,23 @@
       //       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
         &trans   &kp APOS      &kp COMMA     &kp DOT       &kp P         &kp Y             &kp F         &kp G         &kp C         &kp R         &kp L         &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        &trans   &kp A         &kp O         &kp E         &kp U         &kp I             &kp D         &kp H         &kp T         &kp N         &kp S         &trans
+        &trans   &lm LSHIFT A  &lm LALT O    &lm LGUI E    &lm LCTRL U   &kp I             &kp D         &rm RCTRL H   &rm RGUI T    &rm LALT N    &rm RSHIFT S  &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        &trans   &as LSHIFT SEMI &am LALT Q  &am LGUI J    &am LCTRL K   &kp X             &kp B         &am RCTRL M   &am RGUI W    &am LALT V    &as RSHIFT Z  &trans
+        &trans   &lm LSHIFT SEMI &lm LALT Q  &lm LGUI J    &lm LCTRL K   &kp X             &kp B         &rm RCTRL M   &rm RGUI W    &rm LALT V    &rm RSHIFT Z  &trans
+      //       ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
+                                             &mt LGUI TAB  &lt SYM ESC   &lt NAV SPACE     &lt FUN RET   &lt NUM BSPC  &mt RALT DEL
+      //                                   ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
+      >;
+    };
+
+    qwerty {
+      bindings = <
+      //       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        &trans   &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P         &trans
+      //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
+        &trans   &lm LSHIFT A  &lm LALT S    &lm LGUI D    &lm LCTRL F   &kp G             &kp H         &rm RCTRL J   &rm RGUI K    &rm LALT L    &rm RSHIFT SEMI  &trans
+      //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
+        &trans   &lm LSHIFT Z &lm LALT X     &lm LGUI C    &lm LCTRL V   &kp B             &kp N         &rm RCTRL M   &rm RGUI COMMA &rm LALT DOT &rm RSHIFT SLASH  &trans
       //       ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
                                              &mt LGUI TAB  &lt SYM ESC   &lt NAV SPACE     &lt FUN RET   &lt NUM BSPC  &mt RALT DEL
       //                                   ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
@@ -65,9 +121,9 @@
       //       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
         &trans   &kp N1        &kp N2        &kp N3        &kp N4        &kp N5            &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        &trans   &trans        &trans        &trans        &trans         &kp MINUS         &kp D         &kp RCTRL     &kp RGUI      &kp LALT      &kp RSHFT     &trans
+        &trans   &trans        &trans        &trans        &trans         &kp MINUS         &kp D         &kp RCTRL     &kp RGUI      &kp LALT      &kp RSHFT    &trans
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        &trans   &kp COLON     &trans        &kp GRAVE     &kp TILDE     &kp UNDER         &kp B         &kp M         &kp W         &kp V         &kp Z         &trans
+        &trans   &kp COLON     &trans        &kp GRAVE     &kp TILDE     &kp UNDER         &kp B         &trans        &trans        &trans        &cwl          &trans
       //       ╰─────────────┴─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
                                              &kp TAB       &kp ESC       &kp SPACE         &kp RET       &trans        &kp DEL
       //                                   ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
