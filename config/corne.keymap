@@ -74,9 +74,9 @@
       bindings = <&caps_word>, <&kp CAPSLOCK>;
     };
 
-    lt: layer_tap {
+    mlt: mod_layer_tap {
       compatible = "zmk,behavior-hold-tap";
-      label = "LAYER_TAP";
+      label = "MOD_LAYER_TAP";
       #binding-cells = <2>;
       flavor = "tap-preferred";
       tapping-term-ms = <200>;                        // <---[[produces tap if held longer than tapping-term-ms]]
@@ -97,7 +97,7 @@
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
         &trans   &lm LSHIFT SEMI &lm LALT Q  &lm LGUI J    &lm LCTRL K   &kp X             &kp B         &rm RCTRL M   &rm RGUI W    &rm LALT V    &rm RSHIFT Z  &trans
       //       ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
-                                             &mt LGUI TAB  &lt SYM ESC   &lt NAV SPACE     &lt FUN RET   &lt NUM BSPC  &mt RALT DEL
+                                             &mt LGUI TAB  &mlt SYM ESC   &mlt NAV SPACE     &mlt FUN RET   &mlt NUM BSPC  &mt RALT DEL
       //                                   ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -111,7 +111,7 @@
       //       ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
         &trans   &lm LSHIFT Z &lm LALT X     &lm LGUI C    &lm LCTRL V   &kp B             &kp N         &rm RCTRL M   &rm RGUI COMMA &rm LALT DOT &rm RSHIFT SLASH  &trans
       //       ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
-                                             &mt LGUI TAB  &lt SYM ESC   &lt NAV SPACE     &lt FUN RET   &lt NUM BSPC  &mt RALT DEL
+                                             &mt LGUI TAB  &mlt SYM ESC   &mlt NAV SPACE     &mlt FUN RET   &mlt NUM BSPC  &mt RALT DEL
       //                                   ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
