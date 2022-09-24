@@ -12,9 +12,9 @@
 #define DVO 0
 #define QWE 1
 #define NAV 2
-#define NUM 3
-#define SYM 4
-#define FUN 5
+#define FUN 3
+#define NUM 4
+#define SYM 5
 
 #define XXX &none
 #define ___ &trans
