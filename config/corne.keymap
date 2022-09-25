@@ -32,8 +32,8 @@
       label = "HOME_ROW_MOD";
       #binding-cells = <2>;
       flavor = "tap-preferred";
-      tapping-term-ms = <500>;
-      quick-tap-ms = <250>;
+      tapping-term-ms = <200>;
+      quick-tap-ms = <200>;
       global-quick-tap;
       bindings = <&kp>, <&kp>;
     };
@@ -77,7 +77,7 @@
       //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
         XXX   &kp A         &hrm LALT O   &hrm LGUI E   &hrm LCTRL U  &kp I             &kp D         &hrm RCTRL H  &hrm RGUI T   &hrm LALT N   &kp S         XXX
       //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        XXX   &am LSHFT SEMI &kp Q        &kp J          &kp K         &kp X             &kp B         &kp M        &kp W          &kp V         &am RSHFT Z  XXX
+        XXX   &am LSHFT SEMI &kp Q        &kp J         &kp K         &kp X             &kp B         &kp M         &kp W         &kp V         &am RSHFT Z   XXX
       //    ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
                                           &am LGUI TAB  &al FUN ESC   &al NAV SPACE     &al SYM RET   &al NUM BSPC  &am RALT DEL
       //                                ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
