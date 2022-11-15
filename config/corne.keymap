@@ -67,6 +67,31 @@
     };
   };
 
+  combos {
+    compatible = "zmk,combos";
+    /* KEY POSITIONS
+      ╭─────────────────────────╮ ╭─────────────────────────╮
+      │  _0   1   2   3   4   5 │ │ 6   7   8   9   10  _11 │
+      │ _12  13  14  15  16  17 │ │ 18  19  20  21  22  _23 │
+      │ _24  25  26  27  28  29 │ │ 30  31  32  33  34  _35 │
+      ╰────────────╮ 36  37  38 │ │ 39  40  41 ╭────────────╯
+                   ╰────────────╯ ╰────────────╯
+    */
+
+    combo_tab {
+      timeout-ms = <50>;
+      key-positions = <3 4>;
+      bindings = <&kp TAB>;
+    };
+
+    combo_shift_tab {
+      timeout-ms = <50>;
+      key-positions = <1 2>;
+      bindings = <&kp LS(TAB)>;
+    };
+
+  };
+
   keymap {
     compatible = "zmk,keymap";
 
