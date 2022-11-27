@@ -33,7 +33,7 @@
       #binding-cells = <2>;
       flavor = "tap-preferred";
       tapping-term-ms = <200>;
-      quick-tap-ms = <200>;
+      quick-tap-ms = <125>;
       global-quick-tap;
       bindings = <&kp>, <&kp>;
     };
@@ -58,11 +58,33 @@
       bindings = <&kp>, <&kp>;
     };
 
+    lam: left_alpha_mod {
+      compatible = "zmk,behavior-hold-tap";
+      label = "ALPHA_MOD";
+      #binding-cells = <2>;
+      tapping-term-ms = <150>;
+      quick-tap-ms = <200>;
+      flavor = "balanced";
+      bindings = <&kp>, <&kp>;
+      hold-trigger-key-positions = <6 7 8 9 10 18 19 20 21 22 30 31 32 33 34>;
+    };
+
+    ram: right_alpha_mod {
+      compatible = "zmk,behavior-hold-tap";
+      label = "ALPHA_MOD";
+      #binding-cells = <2>;
+      tapping-term-ms = <150>;
+      quick-tap-ms = <200>;
+      flavor = "balanced";
+      bindings = <&kp>, <&kp>;
+      hold-trigger-key-positions = <1 2 3 4 5 13 14 15 16 17 25 26 27 28 29>;
+    };
+
     cwl: caps_word_lock {
       compatible = "zmk,behavior-tap-dance";
       label = "CAPS_WORD_LOCK";
       #binding-cells = <0>;
-      tapping-term-ms = <200>;
+      tapping-term-ms = <500>;
       bindings = <&caps_word>, <&kp CAPSLOCK>;
     };
   };
@@ -86,7 +108,7 @@
 
     combo_shift_tab {
       timeout-ms = <50>;
-      key-positions = <1 2>;
+      key-positions = <2 3>;
       bindings = <&kp LS(TAB)>;
     };
 
@@ -100,9 +122,9 @@
       //    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
         XXX   &kp APOS      &kp COMMA     &kp DOT       &kp P         &kp Y             &kp F         &kp G         &kp C         &kp R         &kp L         XXX
       //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        XXX   &kp A         &hrm LALT O   &hrm LGUI E   &hrm LCTRL U  &kp I             &kp D         &hrm RCTRL H  &hrm RGUI T   &hrm LALT N   &kp S         XXX
+        XXX   &lam LSHFT A  &hrm LALT O   &hrm LGUI E   &hrm LCTRL U  &kp I             &kp D         &hrm RCTRL H  &hrm RGUI T   &hrm LALT N   &ram RSHFT S  XXX
       //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        XXX   &am LSHFT SEMI &kp Q        &kp J         &kp K         &kp X             &kp B         &kp M         &kp W         &kp V         &am RSHFT Z   XXX
+        XXX   &lam LSHFT SEMI &kp Q       &kp J         &kp K         &kp X             &kp B         &kp M         &kp W         &kp V         &ram RSHFT Z  XXX
       //    ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
                                           &am LGUI TAB  &al NUM ESC   &al SYM SPACE     &al NAV RET   &al FUN BSPC  &am RALT DEL
       //                                ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
@@ -114,9 +136,9 @@
       //    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
         XXX   &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P         XXX
       //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        XXX   &kp A         &hrm LALT S   &hrm LGUI D   &hrm LCTRL F  &kp G             &kp H         &hrm RCTRL J  &hrm RGUI K   &hrm LALT L   &kp SEMI      XXX
+        XXX   &lam LSHFT A  &hrm LALT S   &hrm LGUI D   &hrm LCTRL F  &kp G             &kp H         &hrm RCTRL J  &hrm RGUI K   &hrm LALT L   &ram RSHFT SEMI  XXX
       //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-        XXX   &am LSHFT Z   &kp X        &kp C          &kp V         &kp B             &kp N         &kp M        &kp COMMA      &kp DOT       &am RSHFT SLASH XXX
+        XXX   &lam LSHFT Z  &kp X        &kp C          &kp V         &kp B             &kp N         &kp M        &kp COMMA      &kp DOT       &ram RSHFT SLASH XXX
       //    ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
                                           ___           ___           ___               ___           ___           ___
       //                                ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
