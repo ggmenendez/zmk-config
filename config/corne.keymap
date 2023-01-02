@@ -80,49 +80,49 @@
     */
 
     combo_tab {
-      timeout-ms = <50>;
+      timeout-ms = <100>;
       key-positions = <3 4>;
       bindings = <&kp TAB>;
     };
 
     combo_shift_tab {
-      timeout-ms = <50>;
+      timeout-ms = <100>;
       key-positions = <2 3>;
       bindings = <&kp LS(TAB)>;
     };
 
     combo_left_ctrl {
-      timeout-ms = <50>;
+      timeout-ms = <100>;
       key-positions = <15 16>;
       bindings = <&kp LCTRL>;
     };
 
     combo_right_ctrl {
-      timeout-ms = <50>;
+      timeout-ms = <100>;
       key-positions = <19 20>;
       bindings = <&kp RCTRL>;
     };
 
     combo_left_gui {
-      timeout-ms = <50>;
+      timeout-ms = <100>;
       key-positions = <14 15>;
       bindings = <&kp LGUI>;
     };
 
     combo_right_gui {
-      timeout-ms = <50>;
+      timeout-ms = <100>;
       key-positions = <20 21>;
       bindings = <&kp LGUI>;
     };
 
     combo_left_alt {
-      timeout-ms = <50>;
+      timeout-ms = <100>;
       key-positions = <13 14>;
       bindings = <&kp LALT>;
     };
 
     combo_right_alt {
-      timeout-ms = <50>;
+      timeout-ms = <100>;
       key-positions = <21 22>;
       bindings = <&kp RALT>;
     };
