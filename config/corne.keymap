@@ -26,9 +26,9 @@
 };
 
 / {
-	chosen {
-		zmk,matrix_transform = &five_column_transform;
-	};
+  chosen {
+    zmk,matrix_transform = &five_column_transform;
+  };
 
   behaviors {
     hrm: home_row_mod {
@@ -116,6 +116,42 @@
       bindings = <&kp LS(TAB)>;
     };
 
+    combo_left_ctrl {
+      timeout-ms = <50>;
+      key-positions = <12 13>;
+      bindings = <&kp LCTRL>;
+    };
+
+    combo_right_ctrl {
+      timeout-ms = <50>;
+      key-positions = <16 17>;
+      bindings = <&kp RCTRL>;
+    };
+
+    combo_left_gui {
+      timeout-ms = <50>;
+      key-positions = <11 12>;
+      bindings = <&kp LGUI>;
+    };
+
+    combo_right_gui {
+      timeout-ms = <50>;
+      key-positions = <17 18>;
+      bindings = <&kp LGUI>;
+    };
+
+    combo_left_alt {
+      timeout-ms = <50>;
+      key-positions = <10 11>;
+      bindings = <&kp LALT>;
+    };
+
+    combo_right_alt {
+      timeout-ms = <50>;
+      key-positions = <18 19>;
+      bindings = <&kp RALT>;
+    };
+
   };
 
   keymap {
@@ -126,9 +162,9 @@
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
            &kp APOS      &kp COMMA     &kp DOT       &kp P         &kp Y             &kp F         &kp G         &kp C         &kp R         &kp L
       // ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-           &lam LSHFT A  &hrm LALT O   &hrm LGUI E   &hrm LCTRL U  &kp I             &kp D         &hrm RCTRL H  &hrm RGUI T   &hrm LALT N   &ram RSHFT S
+           &kp A         &kp O         &kp E         &kp U         &kp I             &kp D         &kp H        &kp T          &kp N         &kp S
       // ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
-           &lam LSHFT SEMI &kp Q       &kp J         &kp K         &kp X             &kp B         &kp M         &kp W         &kp V         &ram RSHFT Z
+           &am LSHFT SEMI &kp Q        &kp J         &kp K         &kp X             &kp B         &kp M         &kp W         &kp V         &am RSHFT Z
       // ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
                                       &am LGUI TAB  &al NUM ESC   &al SYM SPACE     &al NAV RET   &al FUN BSPC  &am RALT DEL
       //                             ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
