@@ -21,6 +21,8 @@
 // To show graphically which key is being held to activate a layer
 #define vvv &trans
 
+#define COMBO_TIMEOUT 40
+
 &mt {
     tapping-term-ms = <150>;
 };
@@ -80,49 +82,49 @@
     */
 
     combo_tab {
-      timeout-ms = <100>;
+      timeout-ms = <COMBO_TIMEOUT>;
       key-positions = <3 4>;
       bindings = <&kp TAB>;
     };
 
     combo_shift_tab {
-      timeout-ms = <100>;
+      timeout-ms = <COMBO_TIMEOUT>;
       key-positions = <2 3>;
       bindings = <&kp LS(TAB)>;
     };
 
     combo_left_ctrl {
-      timeout-ms = <100>;
+      timeout-ms = <COMBO_TIMEOUT>;
       key-positions = <15 16>;
       bindings = <&kp LCTRL>;
     };
 
     combo_right_ctrl {
-      timeout-ms = <100>;
+      timeout-ms = <COMBO_TIMEOUT>;
       key-positions = <19 20>;
       bindings = <&kp RCTRL>;
     };
 
     combo_left_gui {
-      timeout-ms = <100>;
+      timeout-ms = <COMBO_TIMEOUT>;
       key-positions = <14 15>;
       bindings = <&kp LGUI>;
     };
 
     combo_right_gui {
-      timeout-ms = <100>;
+      timeout-ms = <COMBO_TIMEOUT>;
       key-positions = <20 21>;
       bindings = <&kp LGUI>;
     };
 
     combo_left_alt {
-      timeout-ms = <100>;
+      timeout-ms = <COMBO_TIMEOUT>;
       key-positions = <13 14>;
       bindings = <&kp LALT>;
     };
 
     combo_right_alt {
-      timeout-ms = <100>;
+      timeout-ms = <COMBO_TIMEOUT>;
       key-positions = <21 22>;
       bindings = <&kp RALT>;
     };
