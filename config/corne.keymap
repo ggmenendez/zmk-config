@@ -8,18 +8,74 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#include "../zmk-nodefree-config/helper.h"
+
 // Layers
-#define DVO 0
-#define QWE 1
-#define NAV 2
-#define FUN 3
-#define NUM 4
-#define SYM 5
+#define DVO_LIN 0
+#define DVO_WIN 2
+#define DVO_MAC 3
+#define QWE 4
+#define NAV 5
+#define FUN 6
+#define ACC_LIN 7
+#define ACC_WIN 8
+#define ACC_MAC 9
+#define NUM 10
+#define SYM 11
 
 #define XXX &none
 #define ___ &trans
 // To show graphically which key is being held to activate a layer
 #define vvv &trans
+
+// Define spanish letters
+// activate Linux-mode for helper script
+#undef OS_UNICODE_LEAD
+#undef OS_UNICODE_TRAIL
+#define OS_UNICODE_LEAD &macro_tap &kp LS(LC(U))  // <- Linux compose sequence
+#define OS_UNICODE_TRAIL &macro_tap &kp SPACE  // <- Space terminates unicode input on Linux
+
+ZMK_UNICODE_PAIR( lin_aa,   N0, N0,  E, N1,   N0, N0,  C, N1 ) // á/Á
+ZMK_UNICODE_PAIR( lin_ae,   N0, N0,  E, N9,   N0, N0,  C, N9 ) // é/É
+ZMK_UNICODE_PAIR( lin_ai,   N0, N0,  E, D,    N0, N0,  C, D  ) // í/Í
+ZMK_UNICODE_PAIR( lin_ao,   N0, N0,  F, N3,   N0, N0,  D, N3 ) // ó/Ó
+ZMK_UNICODE_PAIR( lin_au,   N0, N0,  F, A,    N0, N0,  D, A  ) // ú/Ú
+ZMK_UNICODE_PAIR( lin_du,   N0, N0,  F, C,    N0, N0,  D, C  ) // ü/Ü
+ZMK_UNICODE_PAIR( lin_an,   N0, N0,  F, N1,   N0, N0,  D, N1 ) // ñ/Ñ
+ZMK_UNICODE_PAIR( lin_ac,   N0, N0,  E, N7,   N0, N0,  C, N7 ) // ç/Ç
+
+// switch to Windows-mode (using WinCompose) for helper script
+#undef OS_UNICODE_LEAD
+#undef OS_UNICODE_TRAIL
+#define OS_UNICODE_LEAD &macro_tap &kp RALT &kp U  // <- WinCompose sequence
+#define OS_UNICODE_TRAIL &macro_tap &kp RET  // <- Return terminates unicode input on Windows
+
+ZMK_UNICODE_PAIR( win_aa,   N0, N0,  E, N1,   N0, N0,  C, N1 ) // á/Á
+ZMK_UNICODE_PAIR( win_ae,   N0, N0,  E, N9,   N0, N0,  C, N9 ) // é/É
+ZMK_UNICODE_PAIR( win_ai,   N0, N0,  E, D,    N0, N0,  C, D  ) // í/Í
+ZMK_UNICODE_PAIR( win_ao,   N0, N0,  F, N3,   N0, N0,  D, N3 ) // ó/Ó
+ZMK_UNICODE_PAIR( win_au,   N0, N0,  F, A,    N0, N0,  D, A  ) // ú/Ú
+ZMK_UNICODE_PAIR( win_du,   N0, N0,  F, C,    N0, N0,  D, C  ) // ü/Ü
+ZMK_UNICODE_PAIR( win_an,   N0, N0,  F, N1,   N0, N0,  D, N1 ) // ñ/Ñ
+ZMK_UNICODE_PAIR( win_ac,   N0, N0,  E, N7,   N0, N0,  C, N7 ) // ç/Ç
+
+
+// activate macOS-mode for helper script
+#undef OS_UNICODE_LEAD
+#undef OS_UNICODE_TRAIL
+#define OS_UNICODE_LEAD &macro_press &kp LALT  // <- macOS compose sequence (must be activated in system preferences)
+#define OS_UNICODE_TRAIL &macro_release &kp LALT  // <- Releasing Left-Alt terminates unicode input on macOns
+
+ZMK_UNICODE_PAIR( mac_aa,   N0, N0,  E, N1,   N0, N0,  C, N1 ) // á/Á
+ZMK_UNICODE_PAIR( mac_ae,   N0, N0,  E, N9,   N0, N0,  C, N9 ) // é/É
+ZMK_UNICODE_PAIR( mac_ai,   N0, N0,  E, D,    N0, N0,  C, D  ) // í/Í
+ZMK_UNICODE_PAIR( mac_ao,   N0, N0,  F, N3,   N0, N0,  D, N3 ) // ó/Ó
+ZMK_UNICODE_PAIR( mac_au,   N0, N0,  F, A,    N0, N0,  D, A  ) // ú/Ú
+ZMK_UNICODE_PAIR( mac_du,   N0, N0,  F, C,    N0, N0,  D, C  ) // ü/Ü
+ZMK_UNICODE_PAIR( mac_an,   N0, N0,  F, N1,   N0, N0,  D, N1 ) // ñ/Ñ
+ZMK_UNICODE_PAIR( mac_ac,   N0, N0,  E, N7,   N0, N0,  C, N7 ) // ç/Ç
+
+
 
 &mt {
     tapping-term-ms = <150>;
@@ -95,7 +151,7 @@
   keymap {
     compatible = "zmk,keymap";
 
-    dvorak {
+    dvorak_lin {
       bindings = <
       //    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
         XXX   &kp APOS      &kp COMMA     &kp DOT       &kp P         &kp Y             &kp F         &kp G         &kp C         &kp R         &kp L         XXX
@@ -104,7 +160,35 @@
       //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
         XXX   &am LSHFT SEMI &kp Q        &kp J         &kp K         &kp X             &kp B         &kp M         &kp W         &kp V         &am RSHFT Z   XXX
       //    ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
-                                          &am LGUI TAB  &al NUM ESC   &al SYM SPACE     &al NAV RET   &al FUN BSPC  &am RALT DEL
+                                          &am LGUI TAB  &al NUM ESC   &al SYM SPACE     &al NAV RET   &al FUN BSPC  &al ACC_LIN DEL
+      //                                ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
+      >;
+    };
+
+    dvorak_win {
+      bindings = <
+      //    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        XXX   &kp APOS      &kp COMMA     &kp DOT       &kp P         &kp Y             &kp F         &kp G         &kp C         &kp R         &kp L         XXX
+      //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
+        XXX   &kp A         &hrm LALT O   &hrm LGUI E   &hrm LCTRL U  &kp I             &kp D         &hrm RCTRL H  &hrm RGUI T   &hrm LALT N   &kp S         XXX
+      //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
+        XXX   &am LSHFT SEMI &kp Q        &kp J         &kp K         &kp X             &kp B         &kp M         &kp W         &kp V         &am RSHFT Z   XXX
+      //    ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
+                                          &am LGUI TAB  &al NUM ESC   &al SYM SPACE     &al NAV RET   &al FUN BSPC  &al ACC_WIN DEL
+      //                                ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
+      >;
+    };
+
+    dvorak_mac {
+      bindings = <
+      //    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        XXX   &kp APOS      &kp COMMA     &kp DOT       &kp P         &kp Y             &kp F         &kp G         &kp C         &kp R         &kp L         XXX
+      //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
+        XXX   &kp A         &hrm LALT O   &hrm LGUI E   &hrm LCTRL U  &kp I             &kp D         &hrm RCTRL H  &hrm RGUI T   &hrm LALT N   &kp S         XXX
+      //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
+        XXX   &am LSHFT SEMI &kp Q        &kp J         &kp K         &kp X             &kp B         &kp M         &kp W         &kp V         &am RSHFT Z   XXX
+      //    ╰───────────────────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
+                                          &am LGUI TAB  &al NUM ESC   &al SYM SPACE     &al NAV RET   &al FUN BSPC  &am ACC_MAC DEL
       //                                ╰─────────────────────────────────────────╯   ╰─────────────────────────────────────────╯
       >;
     };
@@ -147,6 +231,48 @@
         XXX   XXX           &kp F1        &kp F2        &kp F3        &kp F12           XXX           XXX           XXX           XXX           XXX           XXX
       //    ╰─────────────┴─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
                                           ___           ___           ___               ___           vvv           ___
+      //                                ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+      >;
+    };
+
+    accents_lin {
+      bindings = <
+      //    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        XXX   XXX           XXX           XXX           XXX           XXX               XXX           XXX           XXX           &lin_ac       XXX           XXX
+      //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
+        XXX   &lin_aa       &lin_ao       &lin_ae       &lin_au       &lin_ai           XXX           XXX           XXX           XXX           XXX           XXX
+      //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
+        XXX   XXX           XXX           XXX           XXX           XXX               XXX           XXX           XXX           XXX           XXX           XXX
+      //    ╰─────────────┴─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
+                                          ___           ___           ___               ___           ___           vvv
+      //                                ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+      >;
+    };
+
+    accents_win {
+      bindings = <
+      //    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        XXX   XXX           XXX           XXX           XXX           XXX               XXX           XXX           XXX           &win_ac       XXX           XXX
+      //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
+        XXX   &win_aa       &win_ao       &win_ae       &win_au       &win_ai           XXX           XXX           XXX           XXX           XXX           XXX
+      //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
+        XXX   XXX           XXX           XXX           XXX           XXX               XXX           XXX           XXX           XXX           XXX           XXX
+      //    ╰─────────────┴─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
+                                          ___           ___           ___               ___           ___           vvv
+      //                                ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+      >;
+    };
+
+    accents_mac {
+      bindings = <
+      //    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        XXX   XXX           XXX           XXX           XXX           XXX               XXX           XXX           XXX           &mac_ac       XXX           XXX
+      //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
+        XXX   &mac_aa       &mac_ao       &mac_ae       &mac_au       &mac_ai           XXX           XXX           XXX           XXX           XXX           XXX
+      //    ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬─────────────┬─────────────┤
+        XXX   XXX           XXX           XXX           &mac_du       XXX               XXX           XXX           XXX           XXX           XXX           XXX
+      //    ╰─────────────┴─────────────┬─────────────┬─────────────┬─────────────┤   ├─────────────┬─────────────┬─────────────┬───────────────────────────╯
+                                          ___           ___           ___               ___           ___           vvv
       //                                ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
       >;
     };
