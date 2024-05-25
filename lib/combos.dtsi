@@ -1,0 +1,101 @@
+#define COMBO_TIMEOUT 40
+
+/* KEY POSITIONS
+  ╭─────────────────────────╮ ╭─────────────────────────╮
+  │  0 │  1   2   3   4   5 │ │  6   7   8   9  10 │ 11 │
+  │ 12 │ 13  14  15  16  17 │ │ 18  19  20  21  22 │ 23 │
+  │ 24 │ 25  26  27  28  29 │ │ 30  31  32  33  34 │ 35 │
+  ╰────────────╮ 36  37  38 │ │ 39  40  41 ╭────────────╯
+               ╰────────────╯ ╰────────────╯
+*/
+
+/ {
+  combos {
+    compatible = "zmk,combos";
+
+    combo_tab {
+      timeout-ms = <COMBO_TIMEOUT>;
+      key-positions = <3 4>;
+      bindings = <&kp TAB>;
+      slow-release;
+    };
+
+    combo_shift_tab {
+      timeout-ms = <COMBO_TIMEOUT>;
+      key-positions = <2 3>;
+      bindings = <&kp LS(TAB)>;
+      slow-release;
+    };
+
+    combo_left_ctrl {
+      timeout-ms = <COMBO_TIMEOUT>;
+      key-positions = <16 37>;
+      bindings = <&kp LCTRL>;
+      slow-release;
+    };
+
+    combo_right_ctrl {
+      timeout-ms = <COMBO_TIMEOUT>;
+      key-positions = <19 40>;
+      bindings = <&kp RCTRL>;
+      slow-release;
+    };
+
+    combo_left_gui {
+      timeout-ms = <COMBO_TIMEOUT>;
+      key-positions = <15 37>;
+      bindings = <&kp LGUI>;
+      slow-release;
+    };
+
+    combo_right_gui {
+      timeout-ms = <COMBO_TIMEOUT>;
+      key-positions = <20 40>;
+      bindings = <&kp LGUI>;
+      slow-release;
+    };
+
+    combo_left_alt {
+      timeout-ms = <COMBO_TIMEOUT>;
+      key-positions = <14 37>;
+      bindings = <&kp LALT>;
+      slow-release;
+    };
+
+    combo_right_alt {
+      timeout-ms = <COMBO_TIMEOUT>;
+      key-positions = <21 40>;
+      bindings = <&kp LALT>;
+      slow-release;
+    };
+
+    combo_left_shift_crtl {
+      timeout-ms = <COMBO_TIMEOUT>;
+      key-positions = <37 13 16>;
+      bindings = <&kp LS(LCTRL)>;
+      slow-release;
+    };
+
+    combo_right_shift_crtl {
+      timeout-ms = <COMBO_TIMEOUT>;
+      key-positions = <40 22 19>;
+      bindings = <&kp RS(RCTRL)>;
+      slow-release;
+    };
+
+    combo_left_alt_crtl {
+      timeout-ms = <COMBO_TIMEOUT>;
+      key-positions = <37 16 14>;
+      bindings = <&kp LA(LCTRL)>;
+      slow-release;
+    };
+
+    combo_right_alt_crtl {
+      timeout-ms = <COMBO_TIMEOUT>;
+      key-positions = <40 21 19>;
+      bindings = <&kp LA(LCTRL)>;
+      slow-release;
+    };
+
+  };
+};

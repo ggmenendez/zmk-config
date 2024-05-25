@@ -1,0 +1,48 @@
+#include <behaviors.dtsi>
+
+&mt {
+    tapping-term-ms = <150>;
+};
+
+/ {
+  behaviors {
+    hrm: home_row_mod {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOME_ROW_MOD";
+      #binding-cells = <2>;
+      flavor = "tap-preferred";
+      tapping-term-ms = <200>;
+      quick-tap-ms = <125>;
+      global-quick-tap;
+      bindings = <&kp>, <&kp>;
+    };
+
+    al: alpha_layer {
+      compatible = "zmk,behavior-hold-tap";
+      label = "ALPHA_LAYER";
+      #binding-cells = <2>;
+      tapping-term-ms = <150>;
+      quick-tap-ms = <200>;
+      flavor = "balanced";
+      bindings = <&mo>, <&kp>;
+    };
+
+    am: alpha_mod {
+      compatible = "zmk,behavior-hold-tap";
+      label = "ALPHA_MOD";
+      #binding-cells = <2>;
+      tapping-term-ms = <150>;
+      quick-tap-ms = <200>;
+      flavor = "balanced";
+      bindings = <&kp>, <&kp>;
+    };
+
+    cwl: caps_word_lock {
+      compatible = "zmk,behavior-tap-dance";
+      label = "CAPS_WORD_LOCK";
+      #binding-cells = <0>;
+      tapping-term-ms = <500>;
+      bindings = <&caps_word>, <&kp CAPSLOCK>;
+    };
+  };
+};
