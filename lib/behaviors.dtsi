@@ -4,6 +4,10 @@
     tapping-term-ms = <150>;
 };
 
+&soft_off {
+  hold-time-ms = <2500>;
+};
+
 / {
   behaviors {
     hrm: home_row_mod {
