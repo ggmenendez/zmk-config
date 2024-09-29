@@ -19,7 +19,7 @@
       bindings = <&kp TAB>;
       slow-release;
       timeout-ms = <COMBO_TIMEOUT>;
-      require-prior-idle-ms = <COMBO_PRIOR_IDLE>
+      require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
     };
 
     combo_shift_tab {
@@ -27,7 +27,7 @@
       bindings = <&kp LS(TAB)>;
       slow-release;
       timeout-ms = <COMBO_TIMEOUT>;
-      require-prior-idle-ms = <COMBO_PRIOR_IDLE>
+      require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
     };
 
     combo_left_ctrl {
@@ -35,7 +35,7 @@
       bindings = <&kp LCTRL>;
       slow-release;
       timeout-ms = <COMBO_TIMEOUT>;
-      require-prior-idle-ms = <COMBO_PRIOR_IDLE>
+      require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
     };
 
     combo_right_ctrl {
@@ -43,7 +43,7 @@
       bindings = <&kp RCTRL>;
       slow-release;
       timeout-ms = <COMBO_TIMEOUT>;
-      require-prior-idle-ms = <COMBO_PRIOR_IDLE>
+      require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
     };
 
     combo_left_gui {
@@ -51,7 +51,7 @@
       bindings = <&kp LGUI>;
       slow-release;
       timeout-ms = <COMBO_TIMEOUT>;
-      require-prior-idle-ms = <COMBO_PRIOR_IDLE>
+      require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
     };
 
     combo_right_gui {
@@ -59,7 +59,7 @@
       bindings = <&kp LGUI>;
       slow-release;
       timeout-ms = <COMBO_TIMEOUT>;
-      require-prior-idle-ms = <COMBO_PRIOR_IDLE>
+      require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
     };
 
     combo_left_alt {
@@ -67,7 +67,7 @@
       bindings = <&kp LALT>;
       slow-release;
       timeout-ms = <COMBO_TIMEOUT>;
-      require-prior-idle-ms = <COMBO_PRIOR_IDLE>
+      require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
     };
 
     combo_right_alt {
@@ -75,7 +75,7 @@
       bindings = <&kp LALT>;
       slow-release;
       timeout-ms = <COMBO_TIMEOUT>;
-      require-prior-idle-ms = <COMBO_PRIOR_IDLE>
+      require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
     };
 
     combo_left_shift_crtl {
@@ -83,7 +83,7 @@
       bindings = <&kp LS(LCTRL)>;
       slow-release;
       timeout-ms = <COMBO_TIMEOUT>;
-      require-prior-idle-ms = <COMBO_PRIOR_IDLE>
+      require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
     };
 
     combo_right_shift_crtl {
@@ -91,7 +91,7 @@
       bindings = <&kp RS(RCTRL)>;
       slow-release;
       timeout-ms = <COMBO_TIMEOUT>;
-      require-prior-idle-ms = <COMBO_PRIOR_IDLE>
+      require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
     };
 
     combo_left_alt_crtl {
@@ -99,7 +99,7 @@
       bindings = <&kp LA(LCTRL)>;
       slow-release;
       timeout-ms = <COMBO_TIMEOUT>;
-      require-prior-idle-ms = <COMBO_PRIOR_IDLE>
+      require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
     };
 
     combo_right_alt_crtl {
@@ -107,7 +107,7 @@
       bindings = <&kp LA(LCTRL)>;
       slow-release;
       timeout-ms = <COMBO_TIMEOUT>;
-      require-prior-idle-ms = <COMBO_PRIOR_IDLE>
+      require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
     };
 
   };
