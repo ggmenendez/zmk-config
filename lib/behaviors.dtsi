@@ -6,6 +6,12 @@
 
 / {
   behaviors {
+    s_off: hw_soft_off {
+      compatible = "zmk,behavior-soft-off";
+      #binding-cells = <0>;
+      hold-time-ms = <3000>;
+    };
+
     hrm: home_row_mod {
       compatible = "zmk,behavior-hold-tap";
       label = "HOME_ROW_MOD";
